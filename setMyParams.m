@@ -14,12 +14,12 @@ function setMyParams(b,n,nbpilots,nbzeros,snr,delaymax)
 
     W = ( nUtile + nbPilots ) / nTotal^2;
     
-    assignin('base','B',B);
-    assignin('base','N',N);
-    assignin('base','nbPilots',nbPilots);
-    assignin('base','nbZeros',nbZeros);
-    assignin('base','SNR_',snr);
-    assignin('base','delayMax',delayMax);
+
+
+
+
+
+
 
     assignin('base','Ts',Ts);
 

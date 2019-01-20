@@ -12,3 +12,4 @@ nCycle = delayMax * N / Ts;
 nTotal = N + nCycle;
 
 W = ( nUtile + nbPilots ) / nTotal^2;
+debit = 2*N/Ts;
