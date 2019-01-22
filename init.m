@@ -1,7 +1,7 @@
 B = 20e6;
-N = 256;
+N = 64;
 nbPilots = 16;
-nbZeros = 16;
+nbZeros = 8;
 SNR_ = 20;
 delayMax = 1e-7;
 

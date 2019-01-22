@@ -1,19 +1,21 @@
 close all;
 clear variables;
 
-w = warning('query','last');    %ici j'enlève des warnings, YOLO
-id=w.identifier;
-warning('off',id);
-set_param('OFDM','InitFcn','');     %j'enlève le script init qui s'execute à chaque démarrage de la sim
+%w = warning('query','last');    %ici j'enlï¿½ve des warnings, YOLO
+%id=w.identifier;
+%warning('off',id);
+set_param('OFDM','InitFcn','');     %j'enlï¿½ve le script init qui s'execute ï¿½ chaque dï¿½marrage de la sim
 set_param('OFDM','StopTime','0.01');
 
 init;
 
 results=zeros(10000,5);
-i=1;        %numéro de la simulation
+i=1;        %numï¿½ro de la simulation
 %for SNR_=[10:1:30]
     for N=[32,64,128,256,512,1024,2048]
-        for nbPilots=[4:4:N/4]
+        nbZeros = N/8;
+        powersOfTwo = 2.^[1:log2(N/2)];
+        for nbPilots=powersOfTwo
             setMyParams(B,N,nbPilots,nbZeros,SNR_,delayMax);
             sim('OFDM');
             results(i,:)=[N nbPilots SNR_ BER.data(end,1) debit];
