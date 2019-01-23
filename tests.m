@@ -27,7 +27,21 @@ for N=[32,64,128,256,512,1024,2048]
         end
     end
 end
-
+for N=[32,64,128,256,512,1024,2048]
+    nbZeros = N/8;
+    powersOfTwo = 2.^[1:log2(N/4)];
+    for nbPilots=powersOfTwo
+        for SNR_ = [10:5:30]
+            %setMyParams(B,N,nbPilots,nbZeros,SNR_,delayMax);
+            %disp(['N=' num2str(N) ', nbPilots=' num2str(nbPilots) ', SNR=' SNR_ 'dB'])
+            %sim('OFDM');
+            progression=i/211*100;
+            %disp(['BER =' BER.data(end,1))
+            %results(i,:)=[N nbPilots SNR_ BER.data(end,1) debit];
+            i=i+1;
+        end
+    end
+end
 set_param('OFDM','StopTime','inf');
 set_param('OFDM','InitFcn','init');
 
