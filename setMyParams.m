@@ -29,5 +29,5 @@ function setMyParams(b,n,nbpilots,nbzeros,snr,delaymax)
 
     assignin('base','W',W);
     
-    assignin('base','debit', 2*N/Ts)
+    assignin('base','debit', 2*nUtile/Ts)
 end
