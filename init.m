@@ -1,6 +1,6 @@
 B = 20e6;
-N = 256;
-nbPilots = 16;
+N = 2048;
+nbPilots = 8;
 nbZeros = 16;
 SNR_ = 20;
 delayMax = 1e-7;
@@ -12,4 +12,4 @@ nCycle = delayMax * N / Ts;
 nTotal = N + nCycle;
 
 W = ( nUtile + nbPilots ) / nTotal^2;
-debit = 2*N/Ts;
+debit = 3*nUtile/Ts;
