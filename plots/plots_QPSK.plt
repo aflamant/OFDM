@@ -1,5 +1,9 @@
 set term png
 
+unset yrange
+unset xrange
+set key default
+
 set xlabel "Nombre de pilotes"
 set logscale x 2
 set ylabel "BER (%)"
@@ -76,12 +80,34 @@ plot "<awk -F '\"*,\"*' '$3 == 10 && $1 == 2048 {print $2,$4}' result_QPSK.csv" 
 	"<awk -F '\"*,\"*' '$3 == 30 && $1 == 2048 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 30dB", \
 	2 with lines lc "#FF0000" notitle
 
+set output "figures/QPSK/ber4096_QPSK.png"
+set title "BER en fonction du nombre de pilotes pour 4096 canaux (QPSK)"
+
+plot "<awk -F '\"*,\"*' '$3 == 10 && $1 == 4096 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 10dB", \
+	"<awk -F '\"*,\"*' '$3 == 15 && $1 == 4096 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 15dB", \
+	"<awk -F '\"*,\"*' '$3 == 20 && $1 == 4096 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 20dB", \
+	"<awk -F '\"*,\"*' '$3 == 25 && $1 == 4096 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 25dB", \
+	"<awk -F '\"*,\"*' '$3 == 30 && $1 == 4096 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 30dB", \
+	2 with lines lc "#FF0000" notitle
+
+set output "figures/QPSK/ber8192_QPSK.png"
+set title "BER en fonction du nombre de pilotes pour 8192 canaux (QPSK)"
+
+set xrange [2:2048]
+
+plot "<awk -F '\"*,\"*' '$3 == 10 && $1 == 8192 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 10dB", \
+	"<awk -F '\"*,\"*' '$3 == 15 && $1 == 8192 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 15dB", \
+	"<awk -F '\"*,\"*' '$3 == 20 && $1 == 8192 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 20dB", \
+	"<awk -F '\"*,\"*' '$3 == 25 && $1 == 8192 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 25dB", \
+	"<awk -F '\"*,\"*' '$3 == 30 && $1 == 8192 {print $2,$4}' result_QPSK.csv" u 1:($2*100) w lines t "SNR = 30dB", \
+	2 with lines lc "#FF0000" notitle
 
 set output "figures/QPSK/throughput_QPSK.png"
 set title "Débit en fonction du nombre de sous-porteuses (QPSK)"
 
 set xlabel "Nombre de sous-porteuses"
 set yrange [:41]
+unset xrange
 set ylabel "Débit (Mb/s)"
 set key bottom right
 
