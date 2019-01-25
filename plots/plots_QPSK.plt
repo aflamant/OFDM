@@ -6,6 +6,8 @@ set key default
 
 set xlabel "Nombre de pilotes"
 set logscale x 2
+set logscale y
+set yrange [0.1:100]
 set ylabel "BER (%)"
 set ytics nomirror
 

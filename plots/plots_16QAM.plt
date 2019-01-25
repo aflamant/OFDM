@@ -1,7 +1,14 @@
 set term png
 
+
+unset yrange
+unset xrange
+set key default
+
 set xlabel "Nombre de pilotes"
 set logscale x 2
+set logscale y
+set yrange [0.1:100]
 set ylabel "BER (%)"
 set ytics nomirror
 
@@ -103,6 +110,7 @@ set title "Débit en fonction du nombre de sous-porteuses (16QAM)"
 set xlabel "Nombre de sous-porteuses"
 set yrange [:81]
 unset xrange
+unset logscale y
 set ylabel "Débit (Mb/s)"
 set key bottom right
 
