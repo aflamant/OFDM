@@ -1,10 +1,12 @@
-function setMyParams(b,n,nbpilots,nbzeros,snr,delaymax)
+function setMyParams(b,n,nbpilots,nbzeros,snr,delaymax,m)
     B = b;
     N = n;
     nbPilots = nbpilots;
     nbZeros = nbzeros;
     SNR_ = snr;
     delayMax = delaymax;
+    M=m;
+    
 
     Ts = N/B;
 
@@ -29,5 +31,5 @@ function setMyParams(b,n,nbpilots,nbzeros,snr,delaymax)
 
     assignin('base','W',W);
     
-    assignin('base','debit', 2*nUtile/Ts)
+    assignin('base','debit', M*nUtile/Ts)
 end
