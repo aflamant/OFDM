@@ -1,17 +1,17 @@
 close all;
 clear variables;
 
-% w = warning('query','last');    %ici j'enl�ve des warnings, YOLO
-% id=w.identifier;
-% warning('off',id);
+w = warning('query','last');    %ici j'enl�ve des warnings, YOLO
+id=w.identifier;
+warning('off',id);
 
 set_param('OFDM','InitFcn','');     %j'enl�ve le script init qui s'execute � chaque d�marrage de la sim
 set_param('OFDM','StopTime','0.06');
 
 init;
 
-for M=[5,6,7,8]
-    
+% for M=[5,6,7,8]
+M = 4    
     QAM = 2^M
     result=zeros(315,5);
     i=1;        %num�ro de la simulation
@@ -36,7 +36,7 @@ for M=[5,6,7,8]
     
     csvwrite(csvfilename,result)
     save(matfilename,'result')
-end
+% end
 
 set_param('OFDM','StopTime','inf');
 set_param('OFDM','InitFcn','init');
