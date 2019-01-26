@@ -1,11 +1,11 @@
 close all;
 clear variables;
 
-w = warning('query','last');    %ici j'enl�ve des warnings, YOLO
+w = warning('query','last');    %suppression des warnings
 id=w.identifier;
 warning('off',id);
 
-set_param('OFDM','InitFcn','');     %j'enl�ve le script init qui s'execute � chaque d�marrage de la sim
+set_param('OFDM','InitFcn','');     %suppression du script qui s'execute à chaque lancement du programme
 set_param('OFDM','StopTime','0.06');
 
 init;
@@ -30,14 +30,12 @@ for M=[2,3,4,5,6,7,8]   %on fait varier la modulation M-aire
             end
         end
     end
-    csvfilename = ['plots/result_' num2str(QAM) 'QAM.csv'];     %sauvegarde et export du tableau
-    matfilename = ['result_' num2str(QAM) 'QAM.mat'];
-    
+    csvfilename = ['results/result_' num2str(QAM) 'QAM.csv'];     %sauvegarde et export du tableau
+    matfilename = ['results/result_' num2str(QAM) 'QAM.mat'];
+
     csvwrite(csvfilename,result)
     save(matfilename,'result')
 end
 
 set_param('OFDM','StopTime','inf');
 set_param('OFDM','InitFcn','init');
-
-
